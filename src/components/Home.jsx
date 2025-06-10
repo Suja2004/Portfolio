@@ -27,6 +27,15 @@ const socialLinks = [
     },
 ];
 
+const roles = [
+    "Full Stack Developer",
+    "Frontend Developer",
+    "Tech Enthusiast",
+    "CSE Undergraduate",
+    "Passionate Coder"
+];
+
+const repeatedRoles = [...roles, ...roles];
 
 const Home = () => {
     return (
@@ -43,11 +52,13 @@ const Home = () => {
                 </div>
 
                 <div className="user-bio">
-                    <h3>
-                        <span>Coding Enthusiast</span>
-                        <span>|</span>
-                        <span>Web Developer</span>
-                    </h3>
+                    <div className="text-animation">
+                        <div className="words">
+                            {repeatedRoles.map((role, index) => (
+                                <span key={index}>{role}</span>
+                            ))}
+                        </div>
+                    </div>
 
                     <GradientText
                         colors={["#3cf", "#fff", "#3cf", "#fff"]}

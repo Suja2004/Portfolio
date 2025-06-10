@@ -16,6 +16,21 @@
   --link-color: #3cf;
 }
 
+a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+p {
+  font-family: Poppins;
+}
+
 body {
   width: 100%;
   height: 100vh;
@@ -48,7 +63,58 @@ nav {
 
 nav .logo {
   flex: 1;
+
+  & svg {
+    width: 200px;
+    height: 25px;
+    filter: drop-shadow(0 0 5px currentColor);
+    cursor: pointer;
+  }
+}
+
+svg path {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 4;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: all 1s linear;
+  animation: textAnimation 5s linear infinite, flash 2s linear infinite;
+}
+
+svg:hover path {
+  fill: #fff;
+  stroke-dasharray: 0;
+  stroke-dashoffset: 0;
+}
+
+@keyframes textAnimation {
+  0% {
+    stroke-dashoffset: 100;
+  }
+
+  100% {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes flash {
+  0% {
+    stroke: #3cf;
+  }
+  50% {
+    stroke: #fff;
+  }
+  100% {
+    stroke: #3cf;
+  }
+}
+
+nav .hamburger {
+  display: none;
+  cursor: pointer;
   font-size: 1.5rem;
+  color: var(--link-color);
 }
 
 nav .links {
@@ -98,21 +164,6 @@ nav .links a.active:hover::after {
   transform: scaleX(1);
 }
 
-a {
-  text-decoration: none;
-  color: var(--link-color);
-}
-
-h1,
-h2,
-p {
-  margin: 0;
-}
-
-p {
-  font-family: Poppins;
-}
-
 .shiny-text {
   color: #33ccff75;
   background: linear-gradient(
@@ -126,15 +177,6 @@ p {
   background-clip: text;
   display: inline-block;
   animation: shineText 4s linear infinite;
-}
-
-@keyframes shineText {
-  0% {
-    background-position: 100%;
-  }
-  100% {
-    background-position: -100%;
-  }
 }
 
 .animated-gradient-text {
@@ -181,20 +223,6 @@ p {
   z-index: -1;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .text-content {
   font-size: 1.3rem;
   width: 75%;
@@ -213,15 +241,165 @@ p {
     width: 96%;
   }
 
+  nav .hamburger {
+    display: block;
+    & button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  nav span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 6px 0;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    &.active {
+      background-color: var(--link-color);
+    }
+  }
+
+  nav button:hover span {
+    box-shadow: 0 0 3px #fff, 0 0 5px #3cf;
+    &.active {
+      background-color: #fff;
+      box-shadow: 0 0 3px #fff, 0 0 5px #3cf;
+    }
+  }
+
+  nav span.active:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  nav span.active:nth-child(2) {
+    opacity: 0;
+  }
+  nav span.active:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
   nav .links {
     position: absolute;
     width: 100%;
     flex-direction: column;
     height: 400px;
     background: inherit;
-    top: 70px;
+    background: #000000bf;
+    top: 80px;
     left: 0;
     border-radius: inherit;
-    display: none;
+    opacity: 0;
+    transform: translateX(100px);
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  nav .links.active {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  nav .links.closing {
+    opacity: 0;
+    transform: translateX(100px);
+    pointer-events: none;
   }
 }
+
+@keyframes shineText {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-200px);
+  }
+}
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes shineCard {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideTop {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
