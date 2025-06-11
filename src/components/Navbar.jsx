@@ -5,6 +5,26 @@ const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
 
+    const closeMenu = (e) => {
+        if (navbarOpen && !e.target.closest('.navbar-links') && !e.target.closest('.hamburger')) {
+            setNavbarOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        const sections = document.querySelectorAll('section');
+
+        sections.forEach(section => {
+            section.addEventListener('click', closeMenu);
+        });
+
+        return () => {
+            sections.forEach(section => {
+                section.removeEventListener('click', closeMenu);
+            });
+        };
+    }, [navbarOpen]);
+
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
         if (element) {

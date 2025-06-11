@@ -72,7 +72,7 @@ nav .logo {
   }
 }
 
-svg path {
+nav svg path {
   fill: transparent;
   stroke: #fff;
   stroke-width: 4;
@@ -82,7 +82,7 @@ svg path {
   animation: textAnimation 5s linear infinite, flash 2s linear infinite;
 }
 
-svg:hover path {
+nav svg:hover path {
   fill: #fff;
   stroke-dasharray: 0;
   stroke-dashoffset: 0;
@@ -379,27 +379,21 @@ nav .links a.active:hover::after {
     transform: translateX(-50%);
   }
 }
-/* 
+
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
   }
-
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
 @keyframes slideTop {
-  0% {
-    opacity: 0;
-    transform: translateY(100px);
+  from {
+    transform: translateY(200px);
   }
-
-  100% {
-    opacity: 1;
+  to {
     transform: translateY(0);
   }
-} */
+}
