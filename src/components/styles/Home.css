@@ -1,0 +1,74 @@
+section.home {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2px solid var(--color-link);
+}
+
+.user-bio .contact {
+  margin: 1.5rem auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.socials i {
+  font-size: 2rem;
+  color: var(--color-nav-stroke);
+  margin: 1rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  transition: all 0.5s ease;
+}
+
+.socials i:hover {
+  filter: drop-shadow(0 0 5px var(--color-link)) drop-shadow(0 0 2px var(--color-link)) drop-shadow(0 0 2px var(--color-link));
+  border: 1px solid currentColor;
+}
+
+.text-info h1 {
+  font-size: 3.5rem;
+  text-shadow: 1px 1px 0 #ffffff56, 2px 2px 0 #ffffff56;
+}
+
+.text-info h2 {
+  font-size: 3rem;
+}
+
+.text-animation {
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to bottom, transparent, #fff 45% 65%, transparent);
+  margin: 1rem 0;
+}
+
+.words {
+  display: flex;
+  flex-direction: column;
+  animation: scrollUp 12s linear infinite;
+}
+
+.words span {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+@media screen and (width <= 800px) {
+  .home h1 {
+    font-size: 3rem;
+  }
+  .home h2 {
+    font-size: 2rem;
+  }
+  .home p, .home span {
+    font-size: 1rem;
+  }
+}

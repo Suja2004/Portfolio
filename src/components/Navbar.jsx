@@ -4,12 +4,35 @@ const Navbar = () => {
     const [activeLink, setActiveLink] = useState('home');
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+    const [mode, setMode] = useState('Dark');
+    
+    useEffect(() => {
+        document.documentElement.classList.add('Dark');
+        setMode('Dark');
+    }, []);
 
     const closeMenu = (e) => {
         if (navbarOpen && !e.target.closest('.navbar-links') && !e.target.closest('.hamburger')) {
             setNavbarOpen(false);
         }
     };
+
+    useEffect(() => {
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname);
+        }
+    }, []);
+
+
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (!hash) {
+            const homeSection = document.getElementById('home');
+            if (homeSection) {
+                homeSection.scrollIntoView();
+            }
+        }
+    }, []);
 
     useEffect(() => {
         const sections = document.querySelectorAll('section');
@@ -42,6 +65,21 @@ const Navbar = () => {
             setNavbarOpen(true);
         }
     };
+
+    const handleModeToggle = () => {
+        const root = document.documentElement;
+        if (mode === 'Dark') {
+            root.classList.add('Light');
+            root.classList.remove('Dark');
+            setMode('Light');
+        } else {
+            root.classList.add('Dark');
+            root.classList.remove('Light');
+            setMode('Dark');
+        }
+    };
+
+
     useEffect(() => {
         const handleScroll = () => {
             const sections = document.querySelectorAll('section');
@@ -69,18 +107,9 @@ const Navbar = () => {
 
                 </a>
             </div>
-            <div className="hamburger">
-                <button
-                    className="hamburger-button"
-                    onClick={handleToggleNavbar}
-                >
-                    <span className={navbarOpen ? 'active' : ' '}></span>
-                    <span className={navbarOpen ? 'active' : ' '}></span>
-                    <span className={navbarOpen ? 'active' : ' '}></span>
-                </button>
-            </div>
+
             <div className={`links ${navbarOpen ? 'active' : ''} ${isClosing ? 'closing' : ''}`}>
-                {['home', 'about', 'projects', 'contact'].map((id) => (
+                {['home', 'about', 'projects', 'contact'].map((id, i) => (
                     <a
                         key={id}
                         href={`#${id}`}
@@ -89,10 +118,28 @@ const Navbar = () => {
                             scrollToSection(id);
                         }}
                         className={activeLink === id ? 'active' : ''}
+                        style={{ '--delay': `${(i + 2) * 0.4}s` }}
                     >
                         {id.toUpperCase()}
                     </a>
                 ))}
+            </div>
+            <div className="buttons">
+                <div className="hamburger">
+                    <button
+                        className="hamburger-button"
+                        onClick={handleToggleNavbar}
+                    >
+                        <span className={navbarOpen ? 'active' : ' '}></span>
+                        <span className={navbarOpen ? 'active' : ' '}></span>
+                        <span className={navbarOpen ? 'active' : ' '}></span>
+                    </button>
+                </div>
+                <div className="modes">
+                    <button onClick={handleModeToggle}>{mode == "Light" ?
+                        <i id="ie" class='bx bxs-sun' /> : <i id="ie" class='bx bxs-moon' />}
+                    </button>
+                </div>
             </div>
         </nav >
     );

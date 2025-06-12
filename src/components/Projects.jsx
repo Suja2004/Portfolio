@@ -1,24 +1,27 @@
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 const Projects = () => {
     const projects = [
         {
-            title: "Local Goods",
-            description: `Local Goods is a scalable e-commerce platform developed to empower local businesses by offering a comprehensive online storefront solution. The platform enables shop owners to showcase their products, manage inventory, and reach a broader customer base through a user-friendly web interface.`,
-            github: "https://github.com/Suja2004/LocalGoods",
-            live: null,
-            tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-            image: "/projectsImg/LG.png",
-        },
-        {
             title: "CalmCare",
-            description: `CalmCare is a web application designed to provide accessible mental health support for individuals experiencing PTSD. The platform integrates a conversational chatbot powered by machine learning and Dialogflow, delivering personalized guidance and resources in a secure environment.`,
+            description: `Web app delivering personalized mental health support via a machine-learning and chatbot, built for privacy and ease of use.`,
             github: "https://github.com/Suja2004/mentalHealthChatbot",
             live: "https://mental-health-chatbot-zeta.vercel.app/",
             tech: ["MERN STACK", "DIALOGFLOW", "MACHINE-LEARNING"],
             image: "/projectsImg/CC.png",
         },
         {
+            title: "Local Goods",
+            description: `E-commerce solution empowering local businesses with online storefronts, inventory management, and customer outreach tools.`,
+            github: "https://github.com/Suja2004/LocalGoods",
+            live: null,
+            tech: ["PHP", "MySQL", "JavaScript"],
+            image: "/projectsImg/LG.png",
+        },
+        {
             title: "TriviaTrail",
-            description: `TriviaTrail is an interactive, real-time multiplayer quiz application that allows users to join themed trivia rooms, compete with others, and track their progress. The platform is built for engaging, seamless user experiences with instant feedback and dynamic content.`,
+            description: `Real-time multiplayer quiz app for themed competitions, focusing on interactivity and instant user feedback.`,
             github: "https://github.com/Suja2004/TriviaTrail-v2",
             live: "https://trivia-trail-quiz-app.vercel.app/",
             tech: ["MERN STACK"],
@@ -26,7 +29,7 @@ const Projects = () => {
         },
         {
             title: "Thoughts & Threads",
-            description: `Thoughts & Threads is a feature-rich blogging application that supports user authentication, post creation, and interactive discussions. Designed to foster community engagement, this platform enables users to share ideas, comment, and connect with like-minded individuals.`,
+            description: `Feature-rich blog app supporting authentication, post creation, and community-driven discussions.`,
             github: "https://github.com/Suja2004/Blog",
             live: "https://thoughts-and-threads.onrender.com/",
             tech: ["MERN STACK"],
@@ -34,8 +37,7 @@ const Projects = () => {
         },
         {
             title: "Tic Tac Toe AI",
-            image: "/projectsImg/TTT.png",
-            description: `A modern Tic Tac Toe game featuring AI-powered gameplay and multiple difficulty levels, utilizing the Minimax algorithm. The application offers both single and multiplayer modes, robust backend logic, and a responsive, intuitive user interface.`,
+            description: `Modern Tic Tac Toe with AI-driven gameplay and multiple difficulty levels, offering both single and multiplayer modes.`,
             github: "https://github.com/Suja2004/TicTacToe_2",
             live: "https://tic-tac-toe-2-alpha.vercel.app/",
             tech: [
@@ -45,28 +47,18 @@ const Projects = () => {
                 "Minimax Algorithm",
                 "AI",
             ],
-        },
-        {
-            title: "Eventure",
-            image: "/projectsImg/E.png",
-            description: `Developed as a prototype during the COMEDKares Social Innovation Through Field Visit program, EVENTURE is a tourism website dedicated to promoting the Karavali region. The platform categorizes destinations by type, provides detailed insights, and offers interactive features to help users discover and plan their trips efficiently.`,
-            github: "https://github.com/Suja2004/EVENTURE",
-            live: "https://innov8ors-eventure.netlify.app/",
-            tech: [
-                "HTML5",
-                "CSS",
-                "API",
-            ],
+            image: "/projectsImg/TTT.png",
         },
         {
             title: "SAMS",
-            description: `The Student Attendance Management System is a Java-based desktop application designed to automate and streamline attendance tracking for educational institutions. The system features secure data handling, user-friendly interfaces, and seamless integration with MySQL databases.`,
+            description: `Java-based desktop app for automating student attendance tracking, with secure data handling and MySQL integration.`,
             github: "https://github.com/suja2004/College.git",
             live: null,
             tech: ["JAVA", "MYSQL"],
             image: "/projectsImg/SAMS.png",
-        },
+        }
     ]
+
 
     return (
         <section id="projects" className="projects">
@@ -78,7 +70,8 @@ const Projects = () => {
                             <div className="visible-content" id={`content${index + 1}`}>
 
                                 <div className="content">
-                                    <img src={proj.image} alt={proj.title} />
+                                    <LazyLoadImage src={proj.image} alt={proj.title} effect="blur"
+                                    />
                                 </div>
                                 <h3>{proj.title}</h3>
                                 <div className="project-tech">
