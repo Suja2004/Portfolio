@@ -29,7 +29,7 @@ const socialLinks = [
 
 const roles = [
     "Full Stack Developer",
-    "Frontend Developer",
+    "Software Developer",
     "Tech Enthusiast",
     "CSE Undergraduate",
     "Passionate Coder"

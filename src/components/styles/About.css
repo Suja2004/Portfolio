@@ -8,12 +8,14 @@ section.about {
 
 .about .content {
   width: 60%;
+  backdrop-filter: blur(2px);
 }
 
 .about .img {
   position: relative;
   width: 280px;
   height: 280px;
+  user-select: none;
   animation: wave 4s linear infinite;
 }
 
@@ -127,8 +129,9 @@ section.about {
 .skill-icon span {
   font-family: "Radio Canada Big", sans-serif;
   font-weight: bold;
-  font-size: 45px;
-  transform: translateX(600%);
+  font-size: 40px;
+  display: inline-block;
+  transform: translateX(100%);
   transition: all 0.3s ease;
   color: var(--color-nav-stroke);
 }

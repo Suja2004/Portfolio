@@ -5,7 +5,7 @@ const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const [mode, setMode] = useState('Dark');
-    
+
     useEffect(() => {
         document.documentElement.classList.add('Dark');
         setMode('Dark');
@@ -78,7 +78,6 @@ const Navbar = () => {
             setMode('Dark');
         }
     };
-
 
     useEffect(() => {
         const handleScroll = () => {

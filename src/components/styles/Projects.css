@@ -5,6 +5,7 @@ section.projects {
   justify-content: center;
   align-items: center;
   text-align: center;
+  backdrop-filter: blur(5px);
 }
 
 .projects .main-content {
@@ -28,12 +29,24 @@ section.projects {
   transition: all 0.5s ease;
 }
 
-#project1 { grid-area: project1; }
-#project2 { grid-area: project2; }
-#project3 { grid-area: project3; }
-#project4 { grid-area: project4; }
-#project5 { grid-area: project5; }
-#project6 { grid-area: project6; }
+#project1 {
+  grid-area: project1;
+}
+#project2 {
+  grid-area: project2;
+}
+#project3 {
+  grid-area: project3;
+}
+#project4 {
+  grid-area: project4;
+}
+#project5 {
+  grid-area: project5;
+}
+#project6 {
+  grid-area: project6;
+}
 
 .project {
   border-radius: 1rem;
@@ -45,10 +58,10 @@ section.projects {
   margin: 1rem 0;
 }
 
-.visible-content {
-  transition: all 0.5s ease;
+.project .visible-content {
   transform-style: preserve-3d;
   user-select: none;
+  transition: all 1.5s ease;
 }
 
 .project-tech {
@@ -63,7 +76,11 @@ section.projects {
   justify-content: center;
   align-items: center;
   border-bottom: 4px solid;
-  border-image: linear-gradient(to right, var(--color-nav-stroke) 50%, var(--color-link) 50%);
+  border-image: linear-gradient(
+    to right,
+    var(--color-nav-stroke) 50%,
+    var(--color-link) 50%
+  );
   border-image-slice: 1;
 }
 
@@ -86,7 +103,12 @@ section.projects {
 
 .project-description p {
   color: transparent;
-  background-image: linear-gradient(to right, var(--color-nav-stroke), var(--color-link), var(--color-nav-stroke));
+  background-image: linear-gradient(
+    to right,
+    var(--color-nav-stroke),
+    var(--color-link),
+    var(--color-nav-stroke)
+  );
   background-clip: text;
 }
 
@@ -108,19 +130,28 @@ section.projects {
 }
 
 .project-description .links a:hover {
-  filter: drop-shadow(0 0 5px var(--color-link)) drop-shadow(0 0 2px var(--color-link)) drop-shadow(0 0 2px var(--color-link));
+  filter: drop-shadow(0 0 5px var(--color-link))
+    drop-shadow(0 0 2px var(--color-link))
+    drop-shadow(0 0 2px var(--color-link));
   border: 1px solid currentColor;
 }
 
 .project:hover .visible-content {
   transform: rotateX(60deg);
+  opacity: 0;
+}
+
+.project .project-description {
+  opacity: 0;
+  transform: translateY(20px) rotateX(10deg);
+  z-index: 1;
+  transition: opacity 0.5s ease, transform 1s ease;
 }
 
 .project:hover .project-description {
-  z-index: 2;
   opacity: 1;
-  transform: translateZ(0) rotateX(0deg);
-  animation: fadeIn 0.5s ease, slideTop 0.5s ease;
+  transform: translateY(0) rotateX(0deg);
+  z-index: 2;
 }
 
 .project img {
@@ -135,7 +166,8 @@ section.projects {
     display: block;
     columns: 300px;
   }
-  #project1 img, #project5 img {
+  #project1 img,
+  #project5 img {
     width: 55%;
   }
 }

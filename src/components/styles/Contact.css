@@ -5,6 +5,7 @@ section.contact {
   justify-content: center;
   align-items: center;
   text-align: center;
+  user-select: none;
 }
 
 .contact-container {
@@ -22,7 +23,7 @@ section.contact {
   border-radius: 3rem 0 0 3rem;
   border-right: none;
   font-size: 0.9rem;
-  backdrop-filter: blur(8px); 
+  backdrop-filter: blur(8px);
 }
 
 form {
@@ -89,15 +90,20 @@ form button {
   background: transparent;
   color: var(--color-text);
   border: 2px solid var(--color-link);
+  transform: translateY(-10px);
+  box-shadow: 5px 5px 8px var(--color-nav-stroke);
   border-radius: 1rem;
-  transition: all 0.4s linear;
+  transition: all 0.1s linear;
 }
 
 form button:hover {
-  background: var(--color-nav-stroke);
   color: var(--color-link);
   cursor: pointer;
-  transform: translateY(-15px);
+}
+
+form button:active {
+  box-shadow: 0 0 5px var(--color-link);
+  transform: translateY(0);
 }
 
 @media screen and (width <= 800px) {

@@ -2,6 +2,7 @@ footer {
   width: 100%;
   height: 80px;
   user-select: none;
+  pointer-events: none;
 }
 
 footer .text-content {
@@ -10,8 +11,6 @@ footer .text-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(20px);
   font-size: 1.2rem;
 }
 

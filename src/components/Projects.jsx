@@ -70,8 +70,13 @@ const Projects = () => {
                             <div className="visible-content" id={`content${index + 1}`}>
 
                                 <div className="content">
-                                    <LazyLoadImage src={proj.image} alt={proj.title} effect="blur"
+                                    <LazyLoadImage
+                                        src={proj.image}
+                                        placeholderSrc="/projectsImg/thumbs/CC-thumb.png"
+                                        effect="blur"
+                                        alt={proj.title}
                                     />
+
                                 </div>
                                 <h3>{proj.title}</h3>
                                 <div className="project-tech">

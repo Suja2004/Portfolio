@@ -1,3 +1,4 @@
+import Background from './components/Background';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -15,6 +16,7 @@ const App = () => {
     <div>
       <Navbar />
       <div className="sections">
+        <Background />
         <Home />
         <About />
         <Projects />
