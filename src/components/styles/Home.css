@@ -4,6 +4,7 @@ section.home {
   justify-content: center;
   align-items: center;
   text-align: center;
+  user-select: none;
 }
 
 .user-bio .contact {
