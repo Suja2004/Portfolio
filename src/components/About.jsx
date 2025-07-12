@@ -7,7 +7,7 @@ const skills = [
     { name: "React", iconClass: "bx bxl-react" },
     { name: "Node.js", iconClass: "bx bxl-nodejs" },
     { name: "SQL", iconClass: "bx bxs-data" },
-    { name: "C", image: "/assets/c.png" },
+    { name: "C", image: "/assets/C.svg" },
     { name: "Java", iconClass: "bx bxl-java" },
     { name: "Python", iconClass: "bx bxl-python" },
 ];
@@ -33,7 +33,7 @@ const About = () => {
                                     {skill.iconClass ? (
                                         <i className={skill.iconClass}></i>
                                     ) : (
-                                        <img src={skill.image} alt={`${skill.name} icon`} />
+                                        <span>C</span>
                                     )}
                                 </div>
                                 <h3>{skill.name}</h3>

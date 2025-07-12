@@ -61,7 +61,7 @@ const Home = () => {
                     </div>
 
                     <GradientText
-                        colors={["#3cf", "#fff", "#3cf", "#fff"]}
+                        colors={["#3cf", "#cf3", "#3cf", "#cf3"]}
                         animationSpeed={10}
                         showBorder={false}
                         className="custom-class"

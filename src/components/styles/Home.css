@@ -4,7 +4,6 @@ section.home {
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-bottom: 2px solid var(--color-link);
 }
 
 .user-bio .contact {
@@ -49,6 +48,7 @@ section.home {
 .words {
   display: flex;
   flex-direction: column;
+  color: var(--color-nav-stroke);
   animation: scrollUp 12s linear infinite;
 }
 

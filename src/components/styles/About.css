@@ -4,7 +4,6 @@ section.about {
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
-  border-bottom: 2px solid var(--color-link);
 }
 
 .about .content {
@@ -73,6 +72,7 @@ section.about {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  user-select: none;
 }
 
 .skill-card::before {
@@ -84,9 +84,9 @@ section.about {
   height: 100%;
   background: linear-gradient(
     120deg,
-    rgba(255, 255, 255, 0.1) 0%,
+    var(--color-link) 0%,
     var(--color-nav-bg) 50%,
-    rgba(255, 255, 255, 0.1) 100%
+    var(--color-link) 100%
   );
   transform: skewX(-20deg);
 }
@@ -96,7 +96,7 @@ section.about {
 }
 
 .skill-card:hover i,
-.skill-card:hover img {
+.skill-card:hover span {
   filter: drop-shadow(0 0 10px var(--color-link))
     drop-shadow(0 0 5px var(--color-link))
     drop-shadow(0 0 2px var(--color-link));
@@ -114,18 +114,23 @@ section.about {
 .skill-card h3 {
   opacity: 0;
   transition: all 0.3s ease;
+  color: var(--color-nav-stroke);
 }
 
 .skill-icon i {
   font-size: 3rem;
   transform: translateX(60%);
   transition: all 0.3s ease;
+  color: var(--color-nav-stroke);
 }
 
-.skill-icon img {
-  height: 50px;
-  transform: translateX(50%);
+.skill-icon span {
+  font-family: "Radio Canada Big", sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+  transform: translateX(600%);
   transition: all 0.3s ease;
+  color: var(--color-nav-stroke);
 }
 
 @media screen and (width <= 800px) {

@@ -5,7 +5,6 @@ section.contact {
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-bottom: 2px solid var(--color-link);
 }
 
 .contact-container {
@@ -23,8 +22,7 @@ section.contact {
   border-radius: 3rem 0 0 3rem;
   border-right: none;
   font-size: 0.9rem;
-  text-shadow: 0 0 5px var(--color-link);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px); 
 }
 
 form {
