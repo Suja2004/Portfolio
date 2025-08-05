@@ -14,7 +14,7 @@ const socialLinks = [
         label: "GitHub",
     },
     {
-        href: "#mail",
+        href: "mailto:mai14sujankumar@gmail.com",
         iconClass: "bx bxl-gmail",
         label: "Email",
         id: "btn2",
