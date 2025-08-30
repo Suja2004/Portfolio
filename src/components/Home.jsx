@@ -20,7 +20,7 @@ const socialLinks = [
         id: "btn2",
     },
     {
-        href: "/assets/main_resume.pdf",
+        href: "/assets/SujanKumarK.pdf",
         iconClass: "bx bx-download",
         label: "Resume",
         isDownload: true,
