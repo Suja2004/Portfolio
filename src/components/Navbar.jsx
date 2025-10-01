@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Atom } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar = ({ setEnabled, enabled }) => {
     const [activeLink, setActiveLink] = useState('home');
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
@@ -134,9 +135,17 @@ const Navbar = () => {
                         <span className={navbarOpen ? 'active' : ' '}></span>
                     </button>
                 </div>
-                <div className="modes">
+                {/* <div className="modes">
                     <button onClick={handleModeToggle}>{mode == "Light" ?
                         <i id="ie" class='bx bxs-sun' /> : <i id="ie" class='bx bxs-moon' />}
+                    </button>
+                </div> */}
+                <div className="modes">
+                    <button
+                        onClick={() => setEnabled(prev => !prev)}
+                        title='background animation'
+                    >
+                        <Atom />
                     </button>
                 </div>
             </div>

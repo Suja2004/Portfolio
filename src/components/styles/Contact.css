@@ -31,7 +31,10 @@ form {
   border: 2px solid var(--color-link);
   border-radius: 1.5rem;
   padding: 0 2rem;
-  background: var(--color-bg);
+  background: var(--color-contact-bg);
+  backdrop-filter: blur(8px);
+
+  /* background: var(--color-bg); */
   box-shadow: 4px 4px 8px var(--color-nav-stroke);
   transform: translateX(-35px);
 }
@@ -145,4 +148,15 @@ form button:active {
     height: 80px;
     font-size: 1.5rem;
   }
+}
+
+.contact.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.contact.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

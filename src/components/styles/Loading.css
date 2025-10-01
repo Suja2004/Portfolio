@@ -1,0 +1,44 @@
+.loading-banner {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff20;
+  animation: bgZoomOut 4s ease-in-out 1 forwards;
+}
+
+.loading-banner .title {
+  user-select: none;
+  animation: bgZoomIn 4s ease-in-out 1 forwards;
+}
+
+.loading-banner svg path {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 0.7;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: textAnimation 5s ease-in-out 1 forwards;
+}
+
+@keyframes textAnimation {
+  0% {
+    stroke-dashoffset: 50;
+  }
+  80% {
+    fill: transparent;
+  }
+  100% {
+    fill: #fff;
+    stroke-dashoffset: 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .loading-banner .title {
+    scale: 0.7;
+  }
+}

@@ -22,7 +22,7 @@ const About = () => {
 
             <div className="content">
                 <p>
-                    I'm a Computer Science Engineering student with a passion for software development and full-stack web technologies. I love transforming ideas into interactive, user-friendly applications. My curiosity drives me to explore new frameworks, solve real-world problems, and continuously grow as a developer. Whether it's building scalable web apps or writing clean, maintainable code, I enjoy the creative and logical aspects of software engineering. I'm always open to collaborating with fellow tech enthusiasts, mentors, or anyone excited about the world of engineering and innovation.
+                    A Computer Science Engineering student with a passion for software development and full-stack web technologies. Love transforming ideas into interactive, user-friendly applications. My curiosity drives me to explore new frameworks, solve real-world problems, and continuously grow as a developer. Whether it's building scalable web apps or writing clean, maintainable code, I enjoy the creative and logical aspects of software engineering. Always open to collaborating with fellow tech enthusiasts, mentors, or anyone excited about the world of engineering and innovation.
                 </p>
 
                 <div className="skills-carousel">

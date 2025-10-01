@@ -74,7 +74,7 @@ const Home = () => {
 
                     <div className="contact">
                         <div className="socials">
-                            {socialLinks.map(({ href, iconClass, label, id, isDownload }) => (
+                            {socialLinks.map(({ href, iconClass, label, id, isDownload }, i) => (
                                 <a
                                     key={label}
                                     href={href}
@@ -84,7 +84,8 @@ const Home = () => {
                                     rel={href.startsWith("http") && !isDownload ? "noopener noreferrer" : undefined}
                                     download={isDownload ? true : undefined}
                                 >
-                                    <i className={iconClass}></i>
+                                    <i className={iconClass} style={{ '--delay': `${(i + 2) * 0.4}s` }}
+                                    ></i>
                                 </a>
                             ))}
                         </div>

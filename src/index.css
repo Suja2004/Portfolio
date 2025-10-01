@@ -27,25 +27,25 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/* 
 .Light {
-  --color-bg: #ffffff;
-  --color-text: #111111de;
+  --color-bg: #ffffffff;
+  --color-text: #3c0303de;
   --color-text-secondary: #666;
-  --color-link: #00ff00;
+  --color-link: #00ff2fff;
   --color-nav-bg: #fff;
-  --color-nav-stroke: #ff0;
-  --color-nav-hover: #ff0;
-  --color-active: #ff0;
-  --color-gradient-start: #00ff00;
+  --color-nav-stroke: #00ff2fff;
+  --color-nav-hover: #00ff2fff;
+  --color-active: #8c00ffff;
+  --color-gradient-start: #7b00ffff;
   --color-gradient-end: #ff0;
-  --color-shiny-text: #00ff0040;
+  --color-shiny-text: #ff000053;
   --color-shadow: #00ff00;
   --color-hamburger: var(--color-link);
   --color-mobile-nav-bg: #fff;
   --color-mobile-active: #00ff00;
   --color-mobile-hover: #00ff00;
-}
+} */
 
 a {
   text-decoration: none;
@@ -124,10 +124,10 @@ nav svg path {
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
   transition: all 1s linear;
-  animation: textAnimation 5s linear infinite, flash 2s linear infinite;
+  animation: navTextAnimation 5s linear infinite, flash 2s linear infinite;
 }
 
-nav svg:hover path {
+nav .logo svg:hover path {
   fill: var(--color-link);
   stroke-dasharray: 0;
   stroke-dashoffset: 0;
@@ -141,10 +141,14 @@ nav .buttons {
 nav .modes button {
   border: none;
   background: transparent;
-  font-size: 1.5rem;
+  font-size: 0.5rem;
   padding-bottom: 0;
   color: var(--color-active);
   text-shadow: 0 0 5px #fff, 0 0 15px var(--color-active);
+  & svg:hover path {
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+  }
 }
 
 nav .hamburger {
@@ -434,7 +438,7 @@ section {
 
 @keyframes slideTop {
   from {
-    transform: translateY(200px);
+    transform: translateY(100px);
   }
   to {
     transform: translateY(0);
@@ -450,7 +454,7 @@ section {
   }
 }
 
-@keyframes textAnimation {
+@keyframes navTextAnimation {
   0% {
     stroke-dashoffset: 100;
   }
@@ -465,5 +469,25 @@ section {
   }
   100% {
     stroke: var(--color-link);
+  }
+}
+
+@keyframes bgZoomIn {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes bgZoomOut {
+  from {
+    transform: scale(1);
+    background: #000;
+  }
+  to {
+    transform: scale(1.2);
+    background: #00000000;
   }
 }

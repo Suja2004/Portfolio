@@ -1,174 +1,157 @@
-section.projects {
-  min-height: 100vh;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  backdrop-filter: blur(5px);
-  user-select: none;
-}
+@import url("https://fonts.cdnfonts.com/css/ica-rubrik-black");
+@import url("https://fonts.cdnfonts.com/css/poppins");
 
-.projects .main-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.projects .main-content .project-list {
-  display: grid;
-  width: 90%;
-  max-width: 100%;
-  margin: 0 auto;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 300px);
-  grid-template-areas:
-    "project1 project2 project3 project5"
-    "project1 project4 project6 project5";
-  gap: 1rem;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  transition: all 0.5s ease;
-}
-
-#project1 {
-  grid-area: project1;
-}
-#project2 {
-  grid-area: project2;
-}
-#project3 {
-  grid-area: project3;
-}
-#project4 {
-  grid-area: project4;
-}
-#project5 {
-  grid-area: project5;
-}
-#project6 {
-  grid-area: project6;
-}
-
-.project {
-  border-radius: 1rem;
-  display: flex;
-  padding: 1rem;
-  position: relative;
-  perspective: 1000px;
-  cursor: default;
-  margin: 1rem 0;
-}
-
-.project .visible-content {
-  transform-style: preserve-3d;
-  user-select: none;
-  transition: all 1.5s ease;
-}
-
-.project-tech {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-
-.project-tech p {
-  border-radius: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 4px solid;
-  border-image: linear-gradient(
-    to right,
-    var(--color-nav-stroke) 50%,
-    var(--color-link) 50%
-  );
-  border-image-slice: 1;
-}
-
-.project-description {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  opacity: 0;
-  transform: translateZ(100px);
-  transition: all 0.5s ease;
-  background: var(--color-bg);
-  color: white;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1rem;
-}
-
-.project-description p {
-  color: transparent;
-  background-image: linear-gradient(
-    to right,
-    var(--color-nav-stroke),
-    var(--color-link),
-    var(--color-nav-stroke)
-  );
-  background-clip: text;
-}
-
-.project-description .links {
+.banner {
   width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 1rem;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
 }
 
-.project-description .links a {
-  font-size: 2rem;
-  color: var(--color-nav-stroke);
-  margin: 1rem;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid transparent;
-  transition: all 0.5s ease;
-}
-
-.project-description .links a:hover {
-  filter: drop-shadow(0 0 5px var(--color-link))
-    drop-shadow(0 0 2px var(--color-link))
-    drop-shadow(0 0 2px var(--color-link));
-  border: 1px solid currentColor;
-}
-
-.project:hover .visible-content {
-  transform: rotateX(60deg);
-  opacity: 0;
-}
-
-.project .project-description {
-  opacity: 0;
-  transform: translateY(20px) rotateX(10deg);
-  z-index: 1;
-  transition: opacity 0.5s ease, transform 1s ease;
-}
-
-.project:hover .project-description {
-  opacity: 1;
-  transform: translateY(0) rotateX(0deg);
+.banner .slider {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  margin-top: 50px;
+  left: calc(50% - 100px);
+  transform-style: preserve-3d;
+  transform: perspective(1200px);
+  animation: autoRun 24s linear infinite reverse;
   z-index: 2;
 }
 
-.project img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 1rem;
+.banner .slider:hover {
+  animation-play-state: paused;
 }
 
-@media screen and (width <= 800px) {
-  .projects .main-content .project-list {
-    display: block;
-    columns: 300px;
+.banner .slider .item {
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: rotateY(
+      calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+    )
+    translateZ(500px);
+}
+
+@keyframes autoRun {
+  from {
+    transform: perspective(1000px) rotateX(-10deg) rotateY(0deg);
   }
-  #project1 img,
-  #project5 img {
-    width: 55%;
+
+  to {
+    transform: perspective(1000px) rotateX(-10deg) rotateY(360deg);
+  }
+}
+
+.banner .slider .item img {
+  width: 100%;
+  height: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.banner .content {
+  position: absolute;
+  bottom: 40%;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.banner .content h1 {
+  font-family: "ICA Rubrik";
+  font-size: 6em;
+  color: #25283b;
+  position: relative;
+  pointer-events: none;
+}
+
+.banner .content h1::after {
+  position: absolute;
+  inset: 0;
+  content: attr(data-content);
+  -webkit-text-stroke: 2px #d2d2d2;
+  color: transparent;
+}
+
+.project-info {
+  position: absolute;
+  bottom: -150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(45deg, #ffffffc8,#ffffff50, #91919140);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  text-align: left;
+  z-index: 10;
+  pointer-events: auto;
+  backdrop-filter: blur(20px);
+  & .project-links {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+.project-info h2 {
+  margin: 0 0 10px 0;
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.project-info .project-tech span {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 0.8rem;
+  background: #39363669;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.project-info .project-links a {
+  text-decoration: none;
+  font-weight: bold;
+  & svg {
+    color: #fff;
+    margin-top: 0.2rem;
+    padding: 0.5rem;
+    border: 1px solid transparent;
+    transition: all 0.5s ease;
+  }
+
+  & svg:hover {
+    color: var(--color-nav-stroke);
+    filter: drop-shadow(0 0 5px var(--color-link))
+      drop-shadow(0 0 2px var(--color-link))
+      drop-shadow(0 0 2px var(--color-link));
+    border-bottom: 1px solid currentColor;
+  }
+}
+
+.project-info .project-links a:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 600px) {
+  .banner .content h1 {
+    font-size: 3em;
+  }
+  .banner .slider {
+    width: 150px;
+    height: 150px;
+  }
+  .banner .slider .item img {
+    height: 150px;
+  }
+  .project-info {
+    bottom: -350%;
   }
 }

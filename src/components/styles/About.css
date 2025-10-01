@@ -3,12 +3,12 @@ section.about {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  backdrop-filter: blur(2px);
   text-align: center;
 }
 
 .about .content {
   width: 60%;
-  backdrop-filter: blur(2px);
 }
 
 .about .img {

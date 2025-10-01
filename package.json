@@ -13,6 +13,7 @@
     "@react-three/drei": "^10.5.0",
     "@react-three/fiber": "^9.2.0",
     "boxicons": "^2.1.4",
+    "lucide-react": "^0.544.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-lazy-load-image-component": "^1.6.3",
