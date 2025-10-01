@@ -21,13 +21,13 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setFadeOut(true);
-  //     setTimeout(() => setLoading(false), 1000);
-  //   }, 5000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFadeOut(true);
+      setTimeout(() => setLoading(false), 1000);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
