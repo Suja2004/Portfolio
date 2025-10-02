@@ -17,7 +17,7 @@ import './components/styles/Contact.css';
 import { useState, useEffect } from 'react';
 
 const App = () => {
-  const [enabled, setEnabled] = useState(true);
+  const [enabled, setEnabled] = useState(false);
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
@@ -40,9 +40,10 @@ const App = () => {
           <Loading />
         </div>
       ) : (
-        <div>
+        
+        <div className="app">
           <Navbar setEnabled={setEnabled} enabled={enabled} />
-          <div className="sections" >
+          <div className={`sections ${enabled ? "" : "bg"}`} >
             <Home />
             <About />
             <Projects />

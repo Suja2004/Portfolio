@@ -6,8 +6,10 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: red;
-  animation: bgZoomOut 4s ease-in-out 1 forwards;
+  mask-image: url("image.png");
+  mask-size: cover;
+  mask-position: center;
+  mask-repeat: no-repeat;
 }
 
 .loading-banner .title {

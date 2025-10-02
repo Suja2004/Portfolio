@@ -18,6 +18,11 @@
   --color-mobile-active: var(--color-link);
   --color-mobile-hover: #fff;
 
+  --bg-color: #151a28;
+  --gradient-start: blue;
+  --gradient-mid: purple;
+  --box-shadow-color: #3cf;
+
   font-family: Audiowide;
   line-height: 1.5;
   font-weight: 400;
@@ -77,7 +82,19 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: var(--color-bg);
+  /* background-color: var(--color-bg);  */
+  background: var(--bg-color);
+  background-image: conic-gradient(
+    from 0deg at 50% 50%,
+    var(--gradient-start),
+    var(--gradient-mid),
+    var(--gradient-mid),
+    var(--gradient-start)
+  );
+  background-blend-mode: multiply;
+ 
+  /* background: linear-gradient(135deg, #002a21 0%, #01494c 50%, #024276 100%); */
+  background-attachment: fixed;
   transition: all 1.5s ease;
 }
 
@@ -462,7 +479,7 @@ section {
 
 @keyframes bgZoomIn {
   from {
-    transform: scale(1.2);
+    transform: scale(2);
   }
   to {
     transform: scale(1);
