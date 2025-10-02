@@ -42,7 +42,7 @@ const App = () => {
       ) : (
         <div>
           <Navbar setEnabled={setEnabled} enabled={enabled} />
-          <div className="sections app-content fade-in">
+          <div className="sections" >
             <Home />
             <About />
             <Projects />

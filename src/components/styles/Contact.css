@@ -33,8 +33,6 @@ form {
   padding: 0 2rem;
   background: var(--color-contact-bg);
   backdrop-filter: blur(8px);
-
-  /* background: var(--color-bg); */
   box-shadow: 4px 4px 8px var(--color-nav-stroke);
   transform: translateX(-35px);
 }

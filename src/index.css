@@ -397,18 +397,6 @@ section {
   }
 }
 
-@keyframes wave {
-  0% {
-    transform: translateY(10px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(10px);
-  }
-}
-
 @keyframes shineCard {
   0% {
     left: -75%;

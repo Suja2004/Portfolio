@@ -62,17 +62,16 @@ const Projects = () => {
     ];
 
     const [hoveredIndex, setHoveredIndex] = useState(null);
-    const [frontIndex, setFrontIndex] = useState(0);
+    // const [frontIndex, setFrontIndex] = useState(0);
 
-    useEffect(() => {
-        const interval = setInterval(() => { setFrontIndex(prev => (prev + 1) % projects.length); }, 3000);
-        return () => clearInterval(interval);
-    }, [projects.length]);
+    // useEffect(() => {
+    //     const interval = setInterval(() => { setFrontIndex(prev => (prev + 1) % projects.length); }, 3000);
+    //     return () => clearInterval(interval);
+    // }, [projects.length]);
 
     return (
         <section id="projects" className="projects">
             <div className="banner"
-                onClick={() => setHoveredIndex(null)}
             >
                 <div className="slider" style={{ "--quantity": projects.length }}>
                     {projects.map((proj, index) => (
@@ -80,7 +79,9 @@ const Projects = () => {
                             className="item"
                             style={{ "--position": index + 1 }}
                             key={index}
-                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseOver={() => setHoveredIndex(index)}
+                            onTouchStart={() => setHoveredIndex(index)}
+
                         >
                             <LazyLoadImage src={proj.image} effect="blur" alt={proj.title} />
                             <p>{proj.title}</p>

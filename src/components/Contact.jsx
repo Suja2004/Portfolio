@@ -35,10 +35,10 @@ const Contact = () => {
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.unobserve(entry.target); // optional: stop observing after first trigger
+                    observer.unobserve(entry.target);
                 }
             },
-            { threshold: 0.2 } // trigger when 20% of the section is visible
+            { threshold: 0.2 } 
         );
 
         if (sectionRef.current) observer.observe(sectionRef.current);
@@ -49,7 +49,7 @@ const Contact = () => {
     return (
         <section
             id="contact"
-            className={`contact ${isVisible ? "visible" : "hidden"}`} // use classes for animations
+            className={`contact ${isVisible ? "visible" : "hidden"}`}
             ref={sectionRef}
         >
             <div className="contact-container">
