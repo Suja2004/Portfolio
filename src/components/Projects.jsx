@@ -6,6 +6,15 @@ import { Github, Link } from 'lucide-react';
 const Projects = () => {
     const projects = [
         {
+            title: "SignSynth",
+            description:
+                "SignSynth is a Windows accessibility tool that translates live speech and audio into real-time sign language gestures using a customizable 3D avatar. Powered by Vosk and Panda3D, it features intelligent media synchronization and playback controls to enhance the inclusivity of digital and educational content.",
+            github: "https://github.com/Suja2004/SignSynth-v2",
+            live: "https://signsynth.netlify.app/",
+            tech: ["Python", "NLP", "Blender", "ASR"],
+            image: "/projectsImg/SS.png",
+        },
+        {
             title: "CalmCare",
             description:
                 "Web app delivering personalized mental health support via a machine-learning and chatbot, built for privacy and ease of use.",

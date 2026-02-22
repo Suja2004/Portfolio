@@ -45,7 +45,7 @@ section.about {
 .about .img > img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 50%;
   border: 5px solid var(--color-bg);
   background: var(--color-bg);

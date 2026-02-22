@@ -1,4 +1,4 @@
-import myImg from "/assets/me.png";
+import myImg from "/assets/me2.png";
 
 const skills = [
     { name: "HTML5", iconClass: "bx bxl-html5" },
